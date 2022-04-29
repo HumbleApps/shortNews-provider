@@ -1,7 +1,7 @@
 {
     "logs": [
         {
-            "outputFile": "/Users/prabh/Documents/Coding Projects/news/android/app/build/intermediates/incremental/mergeDebugResources/merged.dir/values-is/values-is.xml",
+            "outputFile": "/Users/prabh/Documents/Coding Projects/shortNews-provider/android/app/build/intermediates/incremental/mergeDebugResources/merged.dir/values-is/values-is.xml",
             "map": [
                 {
                     "source": "/Users/prabh/.gradle/caches/transforms-3/d3b760bafa285fc5b53d4d475eb5edf7/transformed/appcompat-1.3.0/res/values-is/values-is.xml",
