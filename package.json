@@ -14,7 +14,6 @@
   },
   "dependencies": {
     "@react-native-picker/picker": "^2.4.1",
-    "inshorts-api": "^1.0.3",
     "react": "17.0.2",
     "react-devtools-core": "^4.24.4",
     "react-native": "0.68.1",
