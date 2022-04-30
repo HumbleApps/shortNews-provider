@@ -1,5 +1,5 @@
 {
-  "name": "shortnews",
+  "name": "news",
   "version": "0.0.1",
   "private": true,
   "scripts": {
@@ -13,6 +13,8 @@
     "release-aab": "cd android; ./gradlew bundleRelease"
   },
   "dependencies": {
+    "@react-native-firebase/app": "^14.9.1",
+    "@react-native-firebase/firestore": "^14.9.1",
     "@react-native-picker/picker": "^2.4.1",
     "react": "17.0.2",
     "react-devtools-core": "^4.24.4",
