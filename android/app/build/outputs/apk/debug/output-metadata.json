@@ -4,7 +4,7 @@
     "type": "APK",
     "kind": "Directory"
   },
-  "applicationId": "com.news",
+  "applicationId": "com.shortnewsprovider",
   "variantName": "debug",
   "elements": [
     {

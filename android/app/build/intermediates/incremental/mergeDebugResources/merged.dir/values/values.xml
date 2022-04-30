@@ -381,7 +381,7 @@
     <string name="default_web_client_id" translatable="false">841077036367-hg183non33m624cq5fq2glrkbhn4e35o.apps.googleusercontent.com</string>
     <string name="gcm_defaultSenderId" translatable="false">841077036367</string>
     <string name="google_api_key" translatable="false">AIzaSyCc-ToXBY6ic9fc_EyZyYzXvZAFCg6TFSE</string>
-    <string name="google_app_id" translatable="false">1:841077036367:android:84c1c7c799461aa793213a</string>
+    <string name="google_app_id" translatable="false">1:841077036367:android:cef3136fe9272b5593213a</string>
     <string name="google_crash_reporting_api_key" translatable="false">AIzaSyCc-ToXBY6ic9fc_EyZyYzXvZAFCg6TFSE</string>
     <string name="google_storage_bucket" translatable="false">shortnews-provider.appspot.com</string>
     <string name="header_description" translatable="false">Heading</string>

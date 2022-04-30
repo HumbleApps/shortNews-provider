@@ -1,6 +1,6 @@
 1<?xml version="1.0" encoding="utf-8"?>
 2<manifest xmlns:android="http://schemas.android.com/apk/res/android"
-3    package="com.news"
+3    package="com.shortnewsprovider"
 4    android:versionCode="1"
 5    android:versionName="1.0" >
 6
@@ -33,7 +33,7 @@
 19
 20    <application
 20-->/Users/prabh/Documents/Coding Projects/shortNews-provider/android/app/src/main/AndroidManifest.xml:6:5-25:19
-21        android:name="com.news.MainApplication"
+21        android:name="com.shortnewsprovider.MainApplication"
 21-->/Users/prabh/Documents/Coding Projects/shortNews-provider/android/app/src/main/AndroidManifest.xml:7:7-38
 22        android:allowBackup="false"
 22-->/Users/prabh/Documents/Coding Projects/shortNews-provider/android/app/src/main/AndroidManifest.xml:11:7-34
@@ -58,7 +58,7 @@
 32-->/Users/prabh/Documents/Coding Projects/shortNews-provider/android/app/src/debug/AndroidManifest.xml:11:84-108
 33        <activity
 33-->/Users/prabh/Documents/Coding Projects/shortNews-provider/android/app/src/main/AndroidManifest.xml:13:7-24:18
-34            android:name="com.news.MainActivity"
+34            android:name="com.shortnewsprovider.MainActivity"
 34-->/Users/prabh/Documents/Coding Projects/shortNews-provider/android/app/src/main/AndroidManifest.xml:14:9-37
 35            android:configChanges="keyboard|keyboardHidden|orientation|screenLayout|screenSize|smallestScreenSize|uiMode"
 35-->/Users/prabh/Documents/Coding Projects/shortNews-provider/android/app/src/main/AndroidManifest.xml:16:9-118
@@ -127,7 +127,7 @@
 69-->[:react-native-firebase_app] /Users/prabh/Documents/Coding Projects/shortNews-provider/node_modules/@react-native-firebase/app/android/build/intermediates/merged_manifest/debug/AndroidManifest.xml:20:9-24:38
 70            android:name="io.invertase.firebase.app.ReactNativeFirebaseAppInitProvider"
 70-->[:react-native-firebase_app] /Users/prabh/Documents/Coding Projects/shortNews-provider/node_modules/@react-native-firebase/app/android/build/intermediates/merged_manifest/debug/AndroidManifest.xml:21:13-88
-71            android:authorities="com.news.reactnativefirebaseappinitprovider"
+71            android:authorities="com.shortnewsprovider.reactnativefirebaseappinitprovider"
 71-->[:react-native-firebase_app] /Users/prabh/Documents/Coding Projects/shortNews-provider/node_modules/@react-native-firebase/app/android/build/intermediates/merged_manifest/debug/AndroidManifest.xml:22:13-86
 72            android:exported="false"
 72-->[:react-native-firebase_app] /Users/prabh/Documents/Coding Projects/shortNews-provider/node_modules/@react-native-firebase/app/android/build/intermediates/merged_manifest/debug/AndroidManifest.xml:23:13-37
@@ -137,7 +137,7 @@
 74-->[com.google.firebase:firebase-common:20.1.0] /Users/prabh/.gradle/caches/transforms-3/825a9bfd9a8e4996f7910b05d1ce9caf/transformed/jetified-firebase-common-20.1.0/AndroidManifest.xml:26:9-31:39
 75            android:name="com.google.firebase.provider.FirebaseInitProvider"
 75-->[com.google.firebase:firebase-common:20.1.0] /Users/prabh/.gradle/caches/transforms-3/825a9bfd9a8e4996f7910b05d1ce9caf/transformed/jetified-firebase-common-20.1.0/AndroidManifest.xml:27:13-77
-76            android:authorities="com.news.firebaseinitprovider"
+76            android:authorities="com.shortnewsprovider.firebaseinitprovider"
 76-->[com.google.firebase:firebase-common:20.1.0] /Users/prabh/.gradle/caches/transforms-3/825a9bfd9a8e4996f7910b05d1ce9caf/transformed/jetified-firebase-common-20.1.0/AndroidManifest.xml:28:13-72
 77            android:directBootAware="true"
 77-->[com.google.firebase:firebase-common:20.1.0] /Users/prabh/.gradle/caches/transforms-3/825a9bfd9a8e4996f7910b05d1ce9caf/transformed/jetified-firebase-common-20.1.0/AndroidManifest.xml:29:13-43

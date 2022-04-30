@@ -7,38 +7,9 @@
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:841077036367:android:84c1c7c799461aa793213a",
+        "mobilesdk_app_id": "1:841077036367:android:cef3136fe9272b5593213a",
         "android_client_info": {
-          "package_name": "com.news"
-        }
-      },
-      "oauth_client": [
-        {
-          "client_id": "841077036367-hg183non33m624cq5fq2glrkbhn4e35o.apps.googleusercontent.com",
-          "client_type": 3
-        }
-      ],
-      "api_key": [
-        {
-          "current_key": "AIzaSyCc-ToXBY6ic9fc_EyZyYzXvZAFCg6TFSE"
-        }
-      ],
-      "services": {
-        "appinvite_service": {
-          "other_platform_oauth_client": [
-            {
-              "client_id": "841077036367-hg183non33m624cq5fq2glrkbhn4e35o.apps.googleusercontent.com",
-              "client_type": 3
-            }
-          ]
-        }
-      }
-    },
-    {
-      "client_info": {
-        "mobilesdk_app_id": "1:841077036367:android:83f011839f84f40493213a",
-        "android_client_info": {
-          "package_name": "com.shortnews.provider"
+          "package_name": "com.shortnewsprovider"
         }
       },
       "oauth_client": [

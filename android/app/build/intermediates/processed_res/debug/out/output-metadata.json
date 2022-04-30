@@ -4,7 +4,7 @@
     "type": "PROCESSED_RES",
     "kind": "Directory"
   },
-  "applicationId": "com.news",
+  "applicationId": "com.shortnewsprovider",
   "variantName": "debug",
   "elements": [
     {
