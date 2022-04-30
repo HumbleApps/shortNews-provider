@@ -36,6 +36,26 @@ const styles = StyleSheet.create({
     alignSelf: 'center',
     marginTop: 20,
   },
+  successView: {
+    borderWidth: 2,
+    marginTop: 16,
+    padding: 10,
+    borderColor: Colors.green50,
+  },
+  successMsg: {
+    textAlign: 'center',
+    color: Colors.green50,
+  },
+  failedView: {
+    borderWidth: 2,
+    marginTop: 16,
+    padding: 10,
+    borderColor: Colors.red5,
+  },
+  failedMsg: {
+    textAlign: 'center',
+    color: Colors.red50,
+  },
 });
 
 export default styles;
