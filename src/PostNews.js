@@ -51,7 +51,7 @@ const PostNews = () => {
       description,
       imageUrl,
       author,
-      newsSource,
+      source,
       articleUrl,
     };
 
