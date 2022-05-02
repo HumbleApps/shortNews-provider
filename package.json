@@ -10,7 +10,8 @@
     "lint": "eslint .",
     "clean": "react-native clean-project-auto",
     "release": "react-native run-android --variant release",
-    "release-aab": "cd android; ./gradlew bundleRelease"
+    "release-aab": "cd android; ./gradlew bundleRelease",
+    "release-apk": "cd android; ./gradlew assembleRelease"
   },
   "dependencies": {
     "@react-native-firebase/app": "^14.9.1",

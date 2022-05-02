@@ -1,25 +1,14 @@
 import React, { useState } from 'react';
 
-import { SafeAreaView, Text } from 'react-native';
+import { SafeAreaView, ScrollView } from 'react-native';
 
-import {
-  View,
-  Incubator,
-  Colors,
-  Button,
-  LoaderScreen,
-} from 'react-native-ui-lib';
+import { Incubator, Colors, Button, LoaderScreen } from 'react-native-ui-lib';
 
 import firestore from '@react-native-firebase/firestore';
 
 import styles from './PostNews.styles';
 
-const { TextField } = Incubator;
-
-Colors.loadColors({
-  text: '#20303C',
-  info: '#724cf9',
-});
+const { TextField, Toast } = Incubator;
 
 const PostNews = () => {
   const [title, setTitle] = useState('');
@@ -65,7 +54,7 @@ const PostNews = () => {
         console.log('News added!');
         resetAll();
         setShowBanner(true);
-        setTimeout(() => setShowBanner(false), 500);
+        setTimeout(() => setShowBanner(false), 2000);
         setLoader(false);
       })
       .catch(() => {
@@ -78,38 +67,91 @@ const PostNews = () => {
   };
 
   return (
-    <SafeAreaView>
-      <View style={[styles.container]}>
+    <SafeAreaView style={[styles.safeAreaContainer]}>
+      <Toast
+        visible={!loader && showBanner}
+        position={'bottom'}
+        message={'News Submitted Successfully!'}
+        preset={'success'}
+        centerMessage
+        autoDismiss={2000}
+        onDismiss={() => setShowBanner(false)}
+      />
+
+      <Toast
+        visible={showBanner && error}
+        position={'bottom'}
+        preset={'error'}
+        message={'Please try again or check your internet!'}
+        centerMessage
+        autoDismiss={2000}
+        onDismiss={() => setShowBanner(false) && setError(false)}
+      />
+
+      <ScrollView
+        style={[styles.container]}
+        contentContainerStyle={[styles.scrollViewContentContainer]}>
+        {loader && <LoaderScreen message="Submitting..." />}
         <TextField
           placeholder={'Title'}
           autoFocus
           multiline
           floatingPlaceholder
-          floatingPlaceholderColor={Colors.info}
+          floatingPlaceholderColor={Colors.blue50}
           floatingPlaceholderStyle={[styles.floatingPlaceholderStyle]}
           fieldStyle={[styles.fieldStyle]}
           onChangeText={e => setTitle(e)}
           value={title}
           style={[styles.fieldText]}
+          showCharCounter
+          maxLength={100}
         />
         <TextField
           placeholder={'Description'}
           multiline
           spellCheck={false}
           floatingPlaceholder
-          floatingPlaceholderColor={Colors.info}
+          floatingPlaceholderColor={Colors.blue50}
           floatingPlaceholderStyle={[styles.floatingPlaceholderStyle]}
           fieldStyle={[styles.fieldStyle]}
           onChangeText={e => setDescription(e)}
           value={description}
           style={[styles.fieldText]}
+          showCharCounter
+          maxLength={500}
+        />
+        <TextField
+          placeholder={'Author'}
+          multiline
+          floatingPlaceholder
+          floatingPlaceholderColor={Colors.blue50}
+          floatingPlaceholderStyle={[styles.floatingPlaceholderStyle]}
+          fieldStyle={[styles.fieldStyle]}
+          onChangeText={e => setAuthor(e)}
+          value={author}
+          style={[styles.fieldText]}
+          showCharCounter
+          maxLength={30}
+        />
+        <TextField
+          placeholder={'News Source'}
+          multiline
+          floatingPlaceholder
+          floatingPlaceholderColor={Colors.blue50}
+          floatingPlaceholderStyle={[styles.floatingPlaceholderStyle]}
+          fieldStyle={[styles.fieldStyle]}
+          onChangeText={e => setSource(e)}
+          value={source}
+          style={[styles.fieldText]}
+          showCharCounter
+          maxLength={30}
         />
         <TextField
           placeholder={'Image URL'}
           multiline
           autoCapitalize={'none'}
           floatingPlaceholder
-          floatingPlaceholderColor={Colors.info}
+          floatingPlaceholderColor={Colors.blue50}
           floatingPlaceholderStyle={[styles.floatingPlaceholderStyle]}
           fieldStyle={[styles.fieldStyle]}
           onChangeText={e => setImageUrl(e)}
@@ -117,66 +159,28 @@ const PostNews = () => {
           style={[styles.fieldText]}
         />
         <TextField
-          placeholder={'Shorten By'}
-          multiline
-          floatingPlaceholder
-          floatingPlaceholderColor={Colors.info}
-          floatingPlaceholderStyle={[styles.floatingPlaceholderStyle]}
-          fieldStyle={[styles.fieldStyle]}
-          onChangeText={e => setAuthor(e)}
-          value={author}
-          style={[styles.fieldText]}
-        />
-        <TextField
-          placeholder={'News Source'}
-          multiline
-          floatingPlaceholder
-          floatingPlaceholderColor={Colors.info}
-          floatingPlaceholderStyle={[styles.floatingPlaceholderStyle]}
-          fieldStyle={[styles.fieldStyle]}
-          onChangeText={e => setSource(e)}
-          value={source}
-          style={[styles.fieldText]}
-        />
-        <TextField
           placeholder={'News Source Article URL'}
           multiline
           autoCapitalize={'none'}
           floatingPlaceholder
-          floatingPlaceholderColor={Colors.info}
+          floatingPlaceholderColor={Colors.blue50}
           floatingPlaceholderStyle={[styles.floatingPlaceholderStyle]}
           fieldStyle={[styles.fieldStyle]}
           onChangeText={e => setArticleUrl(e)}
           value={articleUrl}
           style={[styles.fieldText]}
         />
-
-        <Button
-          label={'Submit News'}
-          size={Button.sizes.large}
-          backgroundColor={Colors.blue50}
-          style={[styles.submit]}
-          disabled={!isSubmitDisabled}
-          onPress={handleSubmit}
-        />
-
-        {loader && <LoaderScreen message="Submitting..." />}
-
-        {showBanner &&
-          (error ? (
-            <View style={[styles.failedView]}>
-              <Text style={[styles.failedMsg]}>
-                Please try again or check your internet!
-              </Text>
-            </View>
-          ) : (
-            <View style={[styles.successView]}>
-              <Text style={[styles.successMsg]}>
-                News Submitted Successfully!
-              </Text>
-            </View>
-          ))}
-      </View>
+        {!showBanner && (
+          <Button
+            label={'Submit News'}
+            size={Button.sizes.large}
+            backgroundColor={Colors.blue50}
+            style={[styles.submit]}
+            disabled={!isSubmitDisabled}
+            onPress={handleSubmit}
+          />
+        )}
+      </ScrollView>
     </SafeAreaView>
   );
 };

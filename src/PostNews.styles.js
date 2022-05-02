@@ -4,20 +4,30 @@ import { Colors } from 'react-native-ui-lib';
 const colorScheme = Appearance.getColorScheme();
 
 const styles = StyleSheet.create({
+  safeAreaContainer: {
+    height: '90%',
+    backgroundColor: Colors.grey80,
+  },
   container: {
     paddingHorizontal: 16,
     paddingVertical: 20,
+    paddingBottom: '10%',
+  },
+  scrollViewContentContainer: {
+    marginBottom: '10%',
+    paddingBottom: '30%',
   },
   banner: {},
   bannerText: {
     textAlign: 'center',
     fontWeight: '700',
     fontSize: 24,
+    color: Colors.blue50,
   },
   floatingPlaceholderStyle: {
-    fontWeight: '500',
+    fontWeight: '600',
     fontSize: 16,
-    color: colorScheme === 'dark' ? Colors.blue50 : Colors.info,
+    color: Colors.blue50,
   },
   fieldStyle: {
     borderWidth: 1,
@@ -25,6 +35,7 @@ const styles = StyleSheet.create({
     borderColor: '#d8d8f6',
     marginBottom: 8,
     paddingHorizontal: 6,
+    backgroundColor: Colors.white,
   },
   fieldText: {
     fontSize: 18,
