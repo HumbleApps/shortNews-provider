@@ -1,70 +1,37 @@
-import React, { useState } from 'react';
+import React from 'react';
 
 import { SafeAreaView, ScrollView } from 'react-native';
 
 import { Incubator, Colors, Button, LoaderScreen } from 'react-native-ui-lib';
 
-import firestore from '@react-native-firebase/firestore';
-
 import styles from './PostNews.styles';
+import usePostNews from './usePostNews';
 
 const { TextField, Toast } = Incubator;
 
 const PostNews = () => {
-  const [title, setTitle] = useState('');
-  const [description, setDescription] = useState('');
-  const [imageUrl, setImageUrl] = useState('');
-  const [author, setAuthor] = useState('');
-  const [source, setSource] = useState('');
-  const [articleUrl, setArticleUrl] = useState('');
-
-  const [showBanner, setShowBanner] = useState(false);
-  const [error, setError] = useState(false);
-  const [loader, setLoader] = useState(false);
-
-  const isSubmitDisabled =
-    title && description && imageUrl && author && source && articleUrl;
-
-  const resetAll = () => {
-    setTitle('');
-    setDescription('');
-    setImageUrl('');
-    setAuthor('');
-    setSource('');
-    setArticleUrl('');
-  };
-
-  const handleSubmit = () => {
-    const payload = {
-      title,
-      description,
-      imageUrl,
-      author,
-      source,
-      articleUrl,
-      timestamp: new Date().getTime(),
-    };
-
-    setLoader(true);
-
-    firestore()
-      .collection('news')
-      .add(payload)
-      .then(() => {
-        console.log('News added!');
-        resetAll();
-        setShowBanner(true);
-        setTimeout(() => setShowBanner(false), 2000);
-        setLoader(false);
-      })
-      .catch(() => {
-        setShowBanner(true);
-        setError(true);
-        setTimeout(() => setShowBanner(false), 500);
-        setTimeout(() => setError(false), 500);
-        setLoader(false);
-      });
-  };
+  const {
+    title,
+    setTitle,
+    description,
+    setDescription,
+    imageUrl,
+    setImageUrl,
+    author,
+    setAuthor,
+    source,
+    setSource,
+    articleUrl,
+    setArticleUrl,
+    showBanner,
+    setShowBanner,
+    error,
+    setError,
+    loader,
+    setLoader,
+    isSubmitDisabled,
+    handleSubmit,
+  } = usePostNews();
 
   return (
     <SafeAreaView style={[styles.safeAreaContainer]}>
