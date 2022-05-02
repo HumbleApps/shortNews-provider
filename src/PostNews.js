@@ -1,8 +1,6 @@
 import React from 'react';
-
 import { SafeAreaView, ScrollView } from 'react-native';
-
-import { Incubator, Colors, Button, LoaderScreen } from 'react-native-ui-lib';
+import { Incubator, Colors, Button } from 'react-native-ui-lib';
 
 import styles from './PostNews.styles';
 import usePostNews from './usePostNews';
@@ -58,7 +56,6 @@ const PostNews = () => {
       <ScrollView
         style={[styles.container]}
         contentContainerStyle={[styles.scrollViewContentContainer]}>
-        {loader && <LoaderScreen message="Submitting..." />}
         <TextField
           placeholder={'Title'}
           autoFocus
@@ -139,11 +136,11 @@ const PostNews = () => {
         />
         {!showBanner && (
           <Button
-            label={'Submit News'}
+            label={loader ? 'Submitting...' : 'Submit News'}
             size={Button.sizes.large}
             backgroundColor={Colors.blue50}
             style={[styles.submit]}
-            disabled={!isSubmitDisabled}
+            disabled={!isSubmitDisabled || loader}
             onPress={handleSubmit}
           />
         )}

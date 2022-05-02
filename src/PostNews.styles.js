@@ -5,7 +5,6 @@ const colorScheme = Appearance.getColorScheme();
 
 const styles = StyleSheet.create({
   safeAreaContainer: {
-    height: '90%',
     backgroundColor: Colors.grey80,
   },
   container: {
@@ -14,7 +13,6 @@ const styles = StyleSheet.create({
     paddingBottom: '10%',
   },
   scrollViewContentContainer: {
-    marginBottom: '10%',
     paddingBottom: '30%',
   },
   banner: {},
