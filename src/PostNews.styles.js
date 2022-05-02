@@ -4,9 +4,7 @@ import { Colors } from 'react-native-ui-lib';
 const colorScheme = Appearance.getColorScheme();
 
 const styles = StyleSheet.create({
-  safeAreaContainer: {
-    backgroundColor: Colors.grey80,
-  },
+  safeAreaContainer: {},
   container: {
     paddingHorizontal: 16,
     paddingVertical: 20,
@@ -33,7 +31,6 @@ const styles = StyleSheet.create({
     borderColor: '#d8d8f6',
     marginBottom: 8,
     paddingHorizontal: 6,
-    backgroundColor: Colors.white,
   },
   fieldText: {
     fontSize: 18,

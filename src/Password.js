@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 
 import { View, Text, TextInput, StyleSheet } from 'react-native';
+import { Colors } from 'react-native-ui-lib';
 
 const Login = ({ onChange }) => {
   const [password, setPassword] = useState('');
@@ -11,6 +12,7 @@ const Login = ({ onChange }) => {
 
   return (
     <View style={[styles.container]}>
+      <Text style={[styles.banner]}>ShortNews Provider</Text>
       <Text style={[styles.text]}>Please enter Your Password</Text>
       <TextInput
         placeholder={'Enter password'}
@@ -30,6 +32,15 @@ const styles = StyleSheet.create({
   },
   text: {
     fontSize: 20,
+  },
+  banner: {
+    fontSize: 26,
+    marginBottom: '30%',
+    fontWeight: '700',
+    width: '70%',
+    borderColor: Colors.blue50,
+    paddingHorizontal: 10,
+    color: Colors.blue50,
   },
 });
 
