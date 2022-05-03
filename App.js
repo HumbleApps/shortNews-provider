@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 
 import { View } from 'react-native';
+import NewsProvider from './src/NewsProvider/Provider';
 
 import Login from './src/Password';
 import TabProvider from './src/Tabs/TabProvider';
@@ -13,7 +14,9 @@ const App = () => {
   };
 
   return (
-    <View>{!auth ? <Login onChange={handleLogin} /> : <TabProvider />}</View>
+    <NewsProvider>
+      <View>{!auth ? <Login onChange={handleLogin} /> : <TabProvider />}</View>
+    </NewsProvider>
   );
 };
 
