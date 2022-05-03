@@ -1,6 +1,6 @@
 import { useState } from 'react';
 
-import firestore from '@react-native-firebase/firestore';
+import useFirestore from './NewsProvider/useStore';
 
 const usePostNews = () => {
   const [title, setTitle] = useState('');
@@ -14,6 +14,8 @@ const usePostNews = () => {
   const [error, setError] = useState(false);
   const [loader, setLoader] = useState(false);
 
+  const { addDataToStore } = useFirestore();
+
   const isSubmitDisabled =
     title && description && imageUrl && author && source && articleUrl;
 
@@ -26,7 +28,7 @@ const usePostNews = () => {
     setArticleUrl('');
   };
 
-  const handleSubmit = () => {
+  const handleSubmit = async () => {
     const payload = {
       title,
       description,
@@ -39,23 +41,20 @@ const usePostNews = () => {
 
     setLoader(true);
 
-    firestore()
-      .collection('news')
-      .add(payload)
-      .then(() => {
-        console.log('News added!');
-        resetAll();
-        setShowBanner(true);
-        setTimeout(() => setShowBanner(false), 2000);
-        setLoader(false);
-      })
-      .catch(() => {
-        setShowBanner(true);
-        setError(true);
-        setTimeout(() => setShowBanner(false), 500);
-        setTimeout(() => setError(false), 500);
-        setLoader(false);
-      });
+    const response = await addDataToStore(payload);
+
+    if (response) {
+      resetAll();
+      setShowBanner(true);
+      setTimeout(() => setShowBanner(false), 2000);
+      setLoader(false);
+    } else {
+      setShowBanner(true);
+      setError(true);
+      setTimeout(() => setShowBanner(false), 500);
+      setTimeout(() => setError(false), 500);
+      setLoader(false);
+    }
   };
 
   return {
