@@ -29,6 +29,8 @@ const styles = StyleSheet.create({
     fontSize: 16,
     color: colorScheme === 'dark' ? 'white' : 'black',
     textAlign: 'justify',
+    flexWrap: 'wrap',
+    flex: 1,
   },
   subtitle: {
     display: 'flex',

@@ -5,8 +5,35 @@ import { getDate } from '../utils';
 
 import styles from './UpdateNewsCard.styles';
 
-const UpdateNewsCard = ({ id, title, timestamp, imageUrl }) => {
+const UpdateNewsCard = ({
+  id,
+  title,
+  description,
+  timestamp,
+  imageUrl,
+  author,
+  source,
+  articleUrl,
+  onEditPress,
+}) => {
   const { deleteDataFromStore } = useFirestore();
+
+  const handleEdit = () => {
+    const newsItem = {
+      id,
+      title,
+      description,
+      timestamp,
+      imageUrl,
+      author,
+      source,
+      articleUrl,
+    };
+    onEditPress(newsItem);
+  };
+
+  const handleDelete = () => deleteDataFromStore(id);
+
   return (
     <View style={[styles.cardContainer]}>
       <Card flex style={[styles.card]}>
@@ -26,21 +53,24 @@ const UpdateNewsCard = ({ id, title, timestamp, imageUrl }) => {
             </View>
 
             <View style={[styles.ctaButtonContainer]}>
-              <Button
-                label={'Edit'}
-                outline
-                fullWidth
-                size={Button.sizes.xSmall}
-                backgroundColor={Colors.blue50}
-                style={[styles.delete]}
-              />
+              {onEditPress && (
+                <Button
+                  label={'Edit'}
+                  outline
+                  fullWidth
+                  size={Button.sizes.xSmall}
+                  backgroundColor={Colors.blue50}
+                  style={[styles.delete]}
+                  onPress={handleEdit}
+                />
+              )}
               <Button
                 label={'Delete'}
                 fullWidth
                 size={Button.sizes.xSmall}
                 backgroundColor={Colors.red30}
                 style={[styles.delete]}
-                onPress={() => deleteDataFromStore(id)}
+                onPress={handleDelete}
               />
             </View>
           </View>

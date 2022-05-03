@@ -2,7 +2,7 @@ import React from 'react';
 
 import { TabController } from 'react-native-ui-lib';
 
-import PostNews from '../PostNews';
+import PostNews from '../PostNews/PostNews';
 import UpdateNews from './UpdateNews';
 
 const TabProvider = () => (
