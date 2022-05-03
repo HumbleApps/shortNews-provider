@@ -38,7 +38,12 @@ const styles = StyleSheet.create({
     color: colorScheme === 'dark' ? 'white' : 'black',
   },
   submit: {
-    width: '60%',
+    width: '40%',
+    alignSelf: 'center',
+    marginTop: 20,
+  },
+  cancel: {
+    width: '40%',
     alignSelf: 'center',
     marginTop: 20,
   },
@@ -61,6 +66,11 @@ const styles = StyleSheet.create({
   failedMsg: {
     textAlign: 'center',
     color: Colors.red50,
+  },
+  ctaButtonContainer: {
+    display: 'flex',
+    flexDirection: 'row',
+    justifyContent: 'space-evenly',
   },
 });
 

@@ -1,5 +1,5 @@
 import React from 'react';
-import { SafeAreaView, ScrollView } from 'react-native';
+import { SafeAreaView, ScrollView, View } from 'react-native';
 import { Incubator, Colors, Button } from 'react-native-ui-lib';
 
 import styles from './PostNews.styles';
@@ -7,7 +7,7 @@ import usePostNews from './usePostNews';
 
 const { TextField, Toast } = Incubator;
 
-const PostNews = () => {
+const PostNews = props => {
   const {
     title,
     setTitle,
@@ -26,10 +26,9 @@ const PostNews = () => {
     error,
     setError,
     loader,
-    setLoader,
     isSubmitDisabled,
     handleSubmit,
-  } = usePostNews();
+  } = usePostNews(props);
 
   return (
     <SafeAreaView style={[styles.safeAreaContainer]}>
@@ -134,16 +133,27 @@ const PostNews = () => {
           value={articleUrl}
           style={[styles.fieldText]}
         />
-        {!showBanner && (
-          <Button
-            label={loader ? 'Submitting...' : 'Submit News'}
-            size={Button.sizes.large}
-            backgroundColor={Colors.blue50}
-            style={[styles.submit]}
-            disabled={!isSubmitDisabled || loader}
-            onPress={handleSubmit}
-          />
-        )}
+        <View style={[styles.ctaButtonContainer]}>
+          {!showBanner && (
+            <Button
+              label={loader ? 'Submitting...' : 'Submit News'}
+              size={Button.sizes.large}
+              backgroundColor={Colors.blue50}
+              style={[styles.submit]}
+              disabled={!isSubmitDisabled || loader}
+              onPress={handleSubmit}
+            />
+          )}
+          {!showBanner && props?.onCancel && (
+            <Button
+              label={'Cancel'}
+              size={Button.sizes.large}
+              backgroundColor={Colors.red40}
+              style={[styles.cancel]}
+              onPress={props.onCancel}
+            />
+          )}
+        </View>
       </ScrollView>
     </SafeAreaView>
   );

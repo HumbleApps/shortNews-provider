@@ -1,20 +1,20 @@
 import { useState } from 'react';
 
-import useFirestore from './NewsProvider/useStore';
+import useFirestore from '../NewsProvider/useStore';
 
-const usePostNews = () => {
-  const [title, setTitle] = useState('');
-  const [description, setDescription] = useState('');
-  const [imageUrl, setImageUrl] = useState('');
-  const [author, setAuthor] = useState('');
-  const [source, setSource] = useState('');
-  const [articleUrl, setArticleUrl] = useState('');
+const usePostNews = props => {
+  const [title, setTitle] = useState(props?.title);
+  const [description, setDescription] = useState(props?.description);
+  const [imageUrl, setImageUrl] = useState(props?.imageUrl);
+  const [author, setAuthor] = useState(props?.author);
+  const [source, setSource] = useState(props?.source);
+  const [articleUrl, setArticleUrl] = useState(props?.articleUrl);
 
   const [showBanner, setShowBanner] = useState(false);
   const [error, setError] = useState(false);
   const [loader, setLoader] = useState(false);
 
-  const { addDataToStore } = useFirestore();
+  const { addDataToStore, updateDataToStore } = useFirestore();
 
   const isSubmitDisabled =
     title && description && imageUrl && author && source && articleUrl;
@@ -36,18 +36,24 @@ const usePostNews = () => {
       author,
       source,
       articleUrl,
-      timestamp: new Date().getTime(),
+      timestamp: props.timestamp || new Date().getTime(),
     };
 
     setLoader(true);
 
-    const response = await addDataToStore(payload);
+    let response;
+    if (props?.id) {
+      response = await updateDataToStore(props?.id, payload);
+    } else {
+      response = await addDataToStore(payload);
+    }
 
     if (response) {
       resetAll();
       setShowBanner(true);
       setTimeout(() => setShowBanner(false), 2000);
       setLoader(false);
+      props?.onCancel && setTimeout(() => props.onCancel(), 2100);
     } else {
       setShowBanner(true);
       setError(true);
