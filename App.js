@@ -7,7 +7,7 @@ import Login from './src/Password';
 import TabProvider from './src/Tabs/TabProvider';
 
 const App = () => {
-  const [auth, setAuth] = useState(null);
+  const [auth, setAuth] = useState(false);
 
   const handleLogin = password => {
     if (password === 'manjot@shortnews.com') setAuth(true);
