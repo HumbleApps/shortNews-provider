@@ -13,7 +13,6 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
   },
   cardImage: {
-    // height: 100,
     width: '20%',
     borderBottomLeftRadius: 10,
     borderTopRightRadius: 0,

@@ -67,7 +67,7 @@ const PostNews = props => {
           value={title}
           style={[styles.fieldText]}
           showCharCounter
-          maxLength={100}
+          maxLength={90}
         />
         <TextField
           placeholder={'Description'}
@@ -81,24 +81,22 @@ const PostNews = props => {
           value={description}
           style={[styles.fieldText]}
           showCharCounter
-          maxLength={500}
+          maxLength={450}
         />
         <TextField
           placeholder={'Author'}
-          multiline
           floatingPlaceholder
           floatingPlaceholderColor={Colors.blue50}
           floatingPlaceholderStyle={[styles.floatingPlaceholderStyle]}
           fieldStyle={[styles.fieldStyle]}
           onChangeText={e => setAuthor(e)}
-          value={author}
+          value={author || 'ਮਨਜੋਤ'}
           style={[styles.fieldText]}
           showCharCounter
           maxLength={30}
         />
         <TextField
           placeholder={'News Source'}
-          multiline
           floatingPlaceholder
           floatingPlaceholderColor={Colors.blue50}
           floatingPlaceholderStyle={[styles.floatingPlaceholderStyle]}

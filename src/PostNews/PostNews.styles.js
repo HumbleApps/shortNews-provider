@@ -4,14 +4,14 @@ import { Colors } from 'react-native-ui-lib';
 const colorScheme = Appearance.getColorScheme();
 
 const styles = StyleSheet.create({
-  safeAreaContainer: {},
+  safeAreaContainer: {
+    paddingHorizontal: 10,
+  },
   container: {
-    paddingHorizontal: 16,
-    paddingVertical: 20,
-    paddingBottom: '10%',
+    paddingTop: 10,
   },
   scrollViewContentContainer: {
-    paddingBottom: '30%',
+    paddingBottom: 10,
   },
   banner: {},
   bannerText: {

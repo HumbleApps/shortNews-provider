@@ -5,17 +5,19 @@ import { getDate } from '../utils';
 
 import styles from './UpdateNewsCard.styles';
 
-const UpdateNewsCard = ({
-  id,
-  title,
-  description,
-  timestamp,
-  imageUrl,
-  author,
-  source,
-  articleUrl,
-  onEditPress,
-}) => {
+const UpdateNewsCard = ({ ...props }) => {
+  const {
+    id,
+    title,
+    description,
+    timestamp,
+    imageUrl,
+    author,
+    source,
+    articleUrl,
+    onEditPress,
+  } = props;
+
   const { deleteDataFromStore } = useFirestore();
 
   const handleEdit = () => {
@@ -42,6 +44,7 @@ const UpdateNewsCard = ({
           source={{
             uri: imageUrl,
           }}
+          resizeMode="stretch"
         />
         <View style={[styles.cardContentContainer]}>
           <Text style={[styles.title]}>{title}</Text>
@@ -80,4 +83,4 @@ const UpdateNewsCard = ({
   );
 };
 
-export default UpdateNewsCard;
+export default React.memo(UpdateNewsCard);
