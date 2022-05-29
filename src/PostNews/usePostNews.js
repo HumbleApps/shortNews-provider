@@ -30,12 +30,12 @@ const usePostNews = props => {
 
   const handleSubmit = async () => {
     const payload = {
-      title,
-      description,
-      imageUrl,
-      author,
-      source,
-      articleUrl,
+      title: title?.trim(),
+      description: description?.trim(),
+      imageUrl: imageUrl?.trim(),
+      author: author?.trim(),
+      source: source?.trim(),
+      articleUrl: articleUrl?.trim(),
       timestamp: props.timestamp || new Date().getTime(),
     };
 
